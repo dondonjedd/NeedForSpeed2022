@@ -19,7 +19,7 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
-        highScoreText.text = "High Score :\n"+PlayerPrefs.GetInt(ScoreSystem.HighScoreKey, 0).ToString();
+        highScoreText.text = "High Score: "+PlayerPrefs.GetInt(ScoreSystem.HighScoreKey, 0).ToString();
 
         if (PlayerPrefs.GetInt(ScoreSystem.CurrentScoreKey, 0) == 0)
         {
@@ -27,7 +27,7 @@ public class MainMenu : MonoBehaviour
         }
         else
         {
-            currentScoreText.text = "Your Score:\n"+ PlayerPrefs.GetInt(ScoreSystem.CurrentScoreKey, 0).ToString();
+            currentScoreText.text = "Your Score: "+ PlayerPrefs.GetInt(ScoreSystem.CurrentScoreKey, 0).ToString();
             PlayerPrefs.SetInt(ScoreSystem.CurrentScoreKey, 0);
 
         }
