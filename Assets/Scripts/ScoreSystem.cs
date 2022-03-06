@@ -9,6 +9,8 @@ public class ScoreSystem : MonoBehaviour
     [SerializeField] private TMP_Text scoreText;
     [SerializeField] private float ScoreMultiplier=5;
     public const string HighScoreKey = "HighScore";
+    public const string CurrentScoreKey = "CurrentScore";
+
 
     private float score;
     // Start is called before the first frame update
@@ -23,6 +25,7 @@ public class ScoreSystem : MonoBehaviour
         score += Time.deltaTime * ScoreMultiplier;
 
         scoreText.text = Mathf.FloorToInt(score).ToString();
+        
 
 
     }
@@ -31,8 +34,9 @@ public class ScoreSystem : MonoBehaviour
     {
 
         int currentHighScore = PlayerPrefs.GetInt(HighScoreKey, 0);
+        PlayerPrefs.SetInt(CurrentScoreKey, Mathf.FloorToInt(score));
 
-        if(score> currentHighScore)
+        if (score> currentHighScore)
         {
             PlayerPrefs.SetInt(HighScoreKey, Mathf.FloorToInt(score));
         }
